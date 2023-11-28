@@ -2,6 +2,18 @@ body {
     position: relative;
 }
 
+#imageCarousel {
+    height: 100vh;
+}
+
+#imageCarousel .carousel-inner,
+#imageCarousel .carousel-item,
+#imageCarousel img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 .logo-container {
     position: absolute;
     top: 50%;
