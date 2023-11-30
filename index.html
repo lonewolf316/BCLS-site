@@ -66,7 +66,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var numberOfImages = 3; // Change this to the total number of images
+        var numberOfImages = 19; // Change this to the total number of images
         var indicatorsContainer = document.getElementById("carousel-indicators");
         var carouselInner = document.getElementById("carousel-inner");
 
@@ -74,7 +74,7 @@
         var imageIndices = Array.from({ length: numberOfImages }, (_, i) => i + 1).sort(() => Math.random() - 0.5);
 
         // Loop through the first 5 indices
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 5; i++) {
             // Create indicator item
             indicatorsContainer.innerHTML += `<li data-target="#imageCarousel" data-slide-to="${i}" ${i === 0 ? 'class="active"' : ''}></li>`;
 
