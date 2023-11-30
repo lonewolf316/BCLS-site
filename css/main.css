@@ -1,5 +1,19 @@
 body {
     position: relative;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+h1 {
+	color: #7f7aba;
+}
+
+h2 {
+	color: #3ac38d;
+}
+
+.lead {
+	color: #ffffff;
 }
 
 #imageCarousel {
