@@ -18,8 +18,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#visit">Visit</a>
@@ -75,20 +75,29 @@
 			// Create and shuffle array of image indices
 			var imageIndices = Array.from({ length: numberOfImages }, (_, i) => i + 1).sort(() => Math.random() - 0.5);
 
-			// Loop through the first 5 indices
-			for (var i = 0; i < 5; i++) {
+			// Check if the device is a mobile device
+			var isMobile = window.innerWidth < 768; // You may adjust this threshold based on your design
+
+			// Set the image directory based on the device type
+			var imageDirectory = isMobile ? "images/carousel/mobile/" : "images/carousel/desktop/";
+
+			// Set the number of images to be loaded based on the device type
+			var numberOfImagesToLoad = isMobile ? 3 : 5;
+
+			// Loop through the first 'numberOfImagesToLoad' indices
+			for (var i = 0; i < numberOfImagesToLoad; i++) {
 				// Create indicator item
 				indicatorsContainer.innerHTML += `<li data-target="#imageCarousel" data-slide-to="${i}" ${i === 0 ? 'class="active"' : ''}></li>`;
 
 				// Create carousel item with image
 				carouselInner.innerHTML += `
 					<div class="carousel-item ${i === 0 ? 'active' : ''}">
-						<img src="images/carousel/image${imageIndices[i]}.jpg" class="d-block w-100" alt="Image ${i + 1}">
+						<img src="${imageDirectory}image${imageIndices[i]}.jpg" class="d-block w-100" alt="Image ${i + 1}">
 					</div>`;
 			}
 		});
-	</script>
 
+	</script>
 
 <!-- Content -->
     <div class="container mt-5">
@@ -149,5 +158,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
